@@ -20,6 +20,12 @@ public class ShopItem : ArtifactVisualizer
             return;
         }
 
+        if (ArtifactManager.instance.ownedArtifacts.Count >= 8)
+        {
+            MaxAmount();
+            return;
+        }
+
         ArtifactManager.instance.AddArtifact(artifact);
         Player.instance.Wallet.Buy(artifact.cost);
 
@@ -29,5 +35,11 @@ public class ShopItem : ArtifactVisualizer
     public void UpdateCounter(int value)
     {
         costCounter.SetText(artifact.cost.ToString(), value < artifact.cost ? 0 : 3);
+    }
+
+    public void MaxAmount() 
+    {
+        SoundManager.instance.PlaySound("Not enough money");
+        return;
     }
 }

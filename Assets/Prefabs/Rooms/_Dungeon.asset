@@ -99,4 +99,4 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 3170f28b1b080ec4f90c43b184da8726, type: 2}
   maxDepth: 3
   maxDoors: 2
-  oddsPower: 1.33
+  oddsPower: 1.57

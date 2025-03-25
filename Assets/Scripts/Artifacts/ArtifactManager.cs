@@ -9,6 +9,7 @@ public class ArtifactManager : Singleton<ArtifactManager>
 
     [SerializeField] List<A_Base> startingArtifacts = new List<A_Base>();
     public List<A_Base> undiscoveredArtifacts;
+    public List<A_Base> ownedArtifacts;
 
     [HideInInspector] public List<Artifact> queue;
     float timeSinceTrigger;
@@ -70,6 +71,7 @@ public class ArtifactManager : Singleton<ArtifactManager>
     {
         Artifact _a = new Artifact(artifact, Instantiate(visualizerGO, transform.position + new Vector3(artifacts.Count * 2.25f, 0), Quaternion.identity, transform).GetComponent<ArtifactVisualizer>());
         artifacts.Add(_a);
+        ownedArtifacts.Add(artifact);
         undiscoveredArtifacts.Remove(artifact);
         PlayerStats.instance.artifactsDiscovered++;
 
